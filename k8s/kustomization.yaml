@@ -1,0 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 00-beer-rec-system-pvc.yaml
+- 01-train-models.yaml
+- 02-beer-rec-rest-api.yaml

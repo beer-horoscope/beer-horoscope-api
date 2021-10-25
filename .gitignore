@@ -1,0 +1,5 @@
+temp
+.vscode
+.env
+**/train-models-local.sh
+**/__pycache__
