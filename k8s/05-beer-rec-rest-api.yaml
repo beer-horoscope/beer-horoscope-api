@@ -19,7 +19,7 @@ spec:
         app: beer-rec-rest-api
     spec:
       containers:
-      - image: quay.io/kelee/beer-rec-rest-api:latest
+      - image: image-registry.openshift-image-registry.svc:5000/beer-rec-system/beer-rec-rest-api:latest
         name: beer-rec-rest-api
         env:
           - name: TRAINED_MODELS_DIR
