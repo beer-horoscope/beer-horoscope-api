@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: train-models-job
+  namespace: beer-rec-system
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
@@ -21,12 +22,19 @@ spec:
     - "-c"
     - |
       /bin/bash <<'EOF'
+      dnf -y install unzip
 
       cd /home
       mkdir temp
       cd temp
-      git clone https://github.com/beer-horoscope/beer-horoscope.git
-      cd beer-horoscope
+      
+      wget https://github.com/beer-horoscope/beer-review-data-set/raw/main/beer_reviews_data.zip
+      unzip beer_reviews_data.zip
+      mkdir -p /mnt/storage/out
+      mv beer_reviews.csv /mnt/storage/out
+
+      git clone https://github.com/beer-horoscope/beer-horoscope-api.git
+      cd beer-horoscope-api
       
       source scripts/train-models.sh
       EOF
