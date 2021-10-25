@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM image-registry.openshift-image-registry.svc:5000/openshift/python:latest
 
 WORKDIR /app
 
