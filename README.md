@@ -1,3 +1,1 @@
 # beer-horoscope-api
-
-test
